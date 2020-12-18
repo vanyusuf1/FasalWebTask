@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css"
+    />
+    <link rel="stylesheet" href="public/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+
+    <!-- Including jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+    <!-- Including Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      input {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>SignUp</h1>
+    <% if(msg){ %>
+    <div class="alert alert-primary" role="alert"><%= msg %></div>
+    <% } %>
+    <form action="/signup" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <input
+          type="email"
+          required
+          autocomplete
+          class="form-control"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          name="email"
+          placeholder="Email"
+        />
+      </div>
+      <br />
+      <div class="form-group">
+        <input
+          type="text"
+          required
+          class="form-control"
+          name="name"
+          placeholder="Full Name"
+        />
+      </div>
+      <br />
+      <div class="form-group">
+        <input
+          required
+          type="number"
+          min="10"
+          max="100"
+          name="age"
+          class="form-control"
+          placeholder="Age"
+        />
+      </div>
+      <br />
+      <input checked type="radio" name="gender" id="male" value="Male" /><label
+        for="male"
+        >Male</label
+      >
+      <input type="radio" name="gender" id="female" value="Female" /><label
+        for="female"
+        >Female</label
+      ><br />
+      <label required for="pImg">Profile Image: </label
+      ><input type="file" name="image" id="pImg" /><br />
+      <input
+        required
+        autocomplete
+        type="password"
+        name="pass"
+        id="pass"
+        placeholder="Password"
+        onkeyup="passmatch()"
+      />
+      <input
+        required
+        autocomplete
+        type="password"
+        id="cpass"
+        placeholder="Confirm Password"
+        onkeyup="passmatch()"
+      /><br /><br />
+      <input
+        class="btn btn-primary"
+        id="submit"
+        type="submit"
+        value="Signup"
+        disabled
+      />
+    </form>
+    <br />
+    <a href="/login">Login Instead</a>
+  </body>
+  <script>
+    function passmatch() {
+      if (
+        document.getElementById("pass").value ==
+        document.getElementById("cpass").value
+      ) {
+        document.getElementById("submit").disabled = false;
+      } else {
+        document.getElementById("submit").disabled = true;
+      }
+    }
+  </script>
+  <script type="text/javascript">
+    setTimeout(function () {
+      // Closing the alert
+      $(".alert").alert("close");
+    }, 5000);
+  </script>
+</html>
