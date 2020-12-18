@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css"
+    />
+    <link rel="stylesheet" href="public/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+
+    <!-- Including jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+    <!-- Including Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .main {
+        display: flex;
+      }
+
+      .box {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        border: 2px solid gray;
+        border-radius: 5px;
+      }
+
+      .logout {
+        position: absolute;
+        right: 30px;
+      }
+
+      .nav {
+        color: white;
+        background-color: teal;
+        margin-bottom: 20px;
+      }
+
+      .nav a {
+        color: white;
+      }
+
+      .nav a:hover {
+        color: coral;
+      }
+
+      .nav-item {
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand">Welcome, <%= name %></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <h2>
+              <a class="nav-link" href="/logout">Logout</a>
+            </h2>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="main">
+      <div class="container-fluid">
+        <img src="<%= image %>" alt="Profile Image" style="width: 250px" />
+        <br />
+        <br />
+        <form action="/signup" method="post" enctype="multipart/form-data">
+          <label
+            >Email:
+            <h4><%= email %></h4></label
+          >
+          <br />
+          <label
+            >Name:
+            <h4><%= name %></h4></label
+          >
+          <br />
+          <label
+            >Age:
+            <h4><%= age %></h4></label
+          >
+          <br />
+          <label
+            >Gender:
+            <h4><%= gender %></h4></label
+          >
+          <br />
+        
+      </div>
+    </div>
+  </body>
+</html>
